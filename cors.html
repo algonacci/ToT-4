@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTTP GET Request with JavaScript</title>
+  </head>
+  <body>
+    <button id="getRequestButton">Make GET Request</button>
+    <div id="response"></div>
+
+    <script>
+      document.getElementById("getRequestButton").addEventListener("click", function () {
+        fetch("http://localhost:5000/")
+          .then((response) => response.json())
+          .then((data) => {
+            // Display the status message
+            const statusMessage = data.status.message;
+            document.getElementById("response").innerHTML = `Status Message: ${statusMessage}`;
+          })
+          .catch((error) => console.error("Error:", error));
+      });
+    </script>
+  </body>
+</html>
