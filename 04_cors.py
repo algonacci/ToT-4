@@ -6,6 +6,7 @@ CORS(app, origins=["https://example.com", "http://127.0.0.1:5500"])
 
 
 @app.route('/')
+@cross_origin()
 def hello_world():
     return jsonify({
         "status": {

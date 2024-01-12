@@ -15,9 +15,9 @@ def search():
     username = request.form['username']
     conn = sqlite3.connect('database.db')
     cursor = conn.cursor()
-    query = f"SELECT * FROM users WHERE username = '{username}'"
-    # query = "SELECT * FROM users WHERE username = ?"
-    cursor.execute(query)
+    # query = f"SELECT * FROM users WHERE username = '{username}'"
+    query = "SELECT * FROM users WHERE username = ?"
+    cursor.execute(query, (username,))
     result = cursor.fetchall()
     conn.close()
     return render_template('02_sql_injection/index.html', result=result)

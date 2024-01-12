@@ -1,5 +1,4 @@
 import requests
-import json
 
 # URL endpoint untuk permintaan POST
 url = 'http://localhost:5000/add_data'  # Sesuaikan dengan alamat server Anda

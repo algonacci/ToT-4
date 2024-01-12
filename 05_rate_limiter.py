@@ -12,7 +12,7 @@ limiter = Limiter(
 
 
 @app.route("/")
-@limiter.limit("5 per minute")
+@limiter.limit("100 per minute")
 def index():
     return "Hello"
 
@@ -24,7 +24,7 @@ def login():
 
 
 @app.route('/add_data', methods=['POST'])
-@limiter.limit("5 per minute")
+@limiter.limit("10 per minute")
 def add_data():
     try:
         data = request.get_json()
